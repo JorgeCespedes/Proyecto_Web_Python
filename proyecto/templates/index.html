@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<div class="container">
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Listado de usuarios</h5>
+      <p class="card-text">
+
+        <!-- TABLE -->
+      <table class="table table-light table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>e-mail</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>{{ user[0] }}</td>
+            <td>{{ user[3] }}</td>
+            <td>{{ user[4] }}</td>
+            <td>{{ user[1] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+
+          {% for pag in range(1,11) %}
+          <li class="page-item">
+            <a class="page-link" href="/page/{{pag}}">{{ pag }}</a>
+          </li>
+          {% endfor %}
+
+        </ul>
+      </nav>
+
+      </p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
